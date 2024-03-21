@@ -26,6 +26,7 @@ class Router
 
         $this->pageMappings = [
             'home' => [DefaultController::class, 'home', []],
+            'allproductbytype' => [DefaultController::class, 'allproductbytype', []],
             'contact' => [DefaultController::class, 'contact', []],
             '403' => [DefaultController::class, 'error403', []],
             '404' => [DefaultController::class, 'error404', []],
@@ -45,7 +46,6 @@ class Router
             'addUser' => [DefaultController::class, 'addUser', ['admin']],
             'deleteUser' => [DefaultController::class, 'deleteUser', ['admin']],
             'list-users' => [UserController::class, 'listUsers', ['admin']],
-            'allproductbytype' => [UserController::class, 'allproductbytype', []],
         ];
         $this->defaultPage = 'home';
         $this->errorPage = '404';

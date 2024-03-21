@@ -13,8 +13,7 @@ class ProductController
     private $twig;
     private ProductModel $productModel;
     private TypeModel $typeModel;
-    public function __construct(Environment $twig, DependencyContainer
-         $dependencyContainer) {
+    public function __construct(Environment $twig, DependencyContainer $dependencyContainer) {
         $this->twig = $twig;
         $this->productModel = $dependencyContainer->get('ProductModel');
         $this->typeModel = $dependencyContainer->get('TypeModel');
@@ -22,8 +21,7 @@ class ProductController
     public function listProducts()
     {
         $products = $this->productModel->getAllProducts();
-        echo $this->twig->render('productController/listProducts.html.twig', ['products' =>
-            $products]);
+        echo $this->twig->render('productController/listProducts.html.twig', ['products' => $products]);
     }
     public function addProduct()
     {
@@ -51,7 +49,6 @@ class ProductController
                 $_SESSION['message'] = 'Veuillez saisir toutes les données.';
             }
         }
-        echo $this->twig->render('productController/addProduct.html.twig', ['types' =>
-            $types]);
+        echo $this->twig->render('productController/addProduct.html.twig', ['types' => $types]);
     }
 }

@@ -33,7 +33,10 @@ class DefaultController
 
     public function allproductbytype()
     {
-        echo $this->twig->render('defaultController/allproductbytype.html.twig', []);
+        $idType = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $type = $this->typeModel->getTypeById(intVal($idType));
+        $products = $this->productModel->getAllProductByType($type);
+        echo $this->twig->render('defaultController/allproductbytype.html.twig', ['products' => $products]);
     }
 
     public function error404()
@@ -81,8 +84,18 @@ class DefaultController
     }
     public function product()
     {
-        $products = $this->productModel->getAllProducts();
-        echo $this->twig->render('defaultController/product.html.twig', ['products' => $products]);
+        $idType = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $type = $this->typeModel->getTypeById(intVal($idType));
+        if ($type == null) {
+            $_SESSION['message'] = 'Le type n\'éxiste pas';
+            header('Location: index.php?page=home');
+            exit;
+        } else {
+            $products = $this->produitModel->getAllProduitByType($type);
+
+        }
+
+        echo $this->twig->render('defaultController/produits.html.twig', ['produits' => $produits, 'type' => $type]);
     }
     public function user()
     {

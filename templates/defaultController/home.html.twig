@@ -1,18 +1,22 @@
 {% extends "base.html.twig" %}
 
-{% block title %} {{ parent() }} Home {% endblock %}
-       
-{% block content %} 
-    <div class="container-fluid">
-		<div class="row justify-content-center">
-			<div class="col-12 col-md-10">
-				 <h1 class="text-center" style="color:#131313;">Home</h1> 
+{% block title %}
+	{{ parent() }}
+	Home
+{% endblock %}
 
-				{% for type in types %}
-				<span class="text-primary"><a href="index.php?page=allproductbytype&id{{type.id}}">{{type.id}} {{type.label}}</a> </span> <br>
-				{%endfor%}				
+{% block content %}
+	<ul class="navbar_type">
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10">
+					<h1 class="text-center" style="color:#131313;">Home</h1>
 
+					{% for type in types %}
+						<span class="text-primary">{{type.id}} Produits du type : <a href="index.php?page=allproductbytype&id={{type.id}}">{{type.label}}</a><br></span> <br>
+						{%endfor%}
+
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-{% endblock %} 
+		{% endblock %}

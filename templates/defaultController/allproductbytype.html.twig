@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	{{ parent() }}All Product by Type
+{% endblock %}
+
+{% block content %}
+	<ul class="navbar_type">
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10">
+					<h1 class="text-center" style="color:#131313;">All Product by Type</h1>
+
+					{% for product in products %}
+					<br> <span class="text-primary"> Nom du produit : {{product.name}}<br> Description : {{product.description}} <br>Prix du produit : {{product.price}}<br> Nombre de produits restant : {{product.stock}}<br><img src="images/{{product.image}}" width="200px"><br></span><br/><br/>
+					{% endfor %}
+
+{% endblock %}
