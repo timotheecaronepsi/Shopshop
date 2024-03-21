@@ -36,7 +36,7 @@ class Router
             'registration' => [DefaultController::class, 'registration', []],
             'login' => [DefaultController::class, 'login', []],
             'logout' => [DefaultController::class, 'logout', []],
-            'product' => [DefaultController::class, 'product', ['admin']],
+            'product' => [ProductController::class, 'product', ['admin']],
             'types' => [DefaultController::class, 'types', ['admin']],
             'updateType' => [DefaultController::class, 'updateType', ['admin']],
             'productType' => [DefaultController::class, 'productType', ['admin']],

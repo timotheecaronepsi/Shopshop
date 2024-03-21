@@ -22,7 +22,7 @@ class ProductController
     public function listProducts()
     {
         $products = $this->productModel->getAllProducts();
-        echo $this->twig->render('productController/listProducts.html.twig', ['products' => $products]);
+        echo $this->twig->render('productController/product.html.twig', ['products' => $products]);
     }
     
     public function addProduct()

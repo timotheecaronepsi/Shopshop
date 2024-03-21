@@ -247,5 +247,9 @@ class DefaultController
         exit;
     }
     
+    public function profil()
+    {
+    echo $this->twig->render('defaultController/profil.html.twig');
+    }
 
 }
