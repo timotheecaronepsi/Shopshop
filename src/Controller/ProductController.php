@@ -18,11 +18,13 @@ class ProductController
         $this->productModel = $dependencyContainer->get('ProductModel');
         $this->typeModel = $dependencyContainer->get('TypeModel');
     }
+    
     public function listProducts()
     {
         $products = $this->productModel->getAllProducts();
         echo $this->twig->render('productController/listProducts.html.twig', ['products' => $products]);
     }
+    
     public function addProduct()
     {
         $types = $this->typeModel->getAllTypes();
@@ -50,5 +52,10 @@ class ProductController
             }
         }
         echo $this->twig->render('productController/addProduct.html.twig', ['types' => $types]);
+    }
+
+    public function cart()
+    {
+        echo $this->twig->render('productController/cart.html.twig');
     }
 }

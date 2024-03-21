@@ -13,7 +13,7 @@
 			{% block title %}{% endblock %}
 		</title>
 	</head>
-	<body class="bg-white" >
+	<body class="bg-white">
 		<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.php?page=home">Navbar</a>
@@ -29,53 +29,64 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="index.php?page=contact">Contact</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=types">Types</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=product">Product</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=user">User</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=registration">Registration</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=login">Log in</a>
-						</li>
+						</li>					
+					
 						{%if session.login is defined %}
 							{%if 'admin' in session.roles %}
+
+							<li class="nav-item">
+								<a class="nav-link" href="index.php?page=user">User</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="index.php?page=product">Product</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="index.php?page=types">Types</a>
+							</li>
+
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdowntoggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" ariaexpanded="false">Utilisateur</a>
 									<div class="dropdown-menu">
 										<a class="dropdownitem" href="index.php?page=list-users">Liste</a>
 									</div>
 								</li>
+							
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Separated link</a>
+									</div>
+								</li>
+							
 							{% endif %}
 						{% endif %}
 						{%if session.login is defined %}
-							<li class="nav-item">
-								<a class="nav-link" href="index.php?page=logout">Se déconnecter</a>
-							</li>
 							<li>
-								<a class="nav-link" href="#">{{session.login}}</a>
+								<a class="nav-link" href="index.php?page=profil">{{session.login}}</a>
 							</li>
-						{% else %}
-						{% endif %}
-            <li class="nav-item">
+
+							<li class="nav-item">
 								<a class="nav-link" href="index.php?page=logout">Log out</a>
 							</li>
-							<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Separated link</a>
-							</div>
+							{% else %}
+
+						<li class="nav-item">
+							<a class="nav-link" href="index.php?page=registration">Registration</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="index.php?page=login">Log in</a>
+						</li>
+
+						{% endif %}
+						
+						<li class="nav-item">
+							<a class="nav-link" href="index.php?page=cart">Cart</a>
 						</li>
 					</ul>
 					<form class="d-flex">

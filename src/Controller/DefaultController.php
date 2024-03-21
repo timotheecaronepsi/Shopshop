@@ -246,5 +246,6 @@ class DefaultController
         header('Location: index.php');
         exit;
     }
+    
 
 }

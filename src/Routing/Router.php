@@ -6,7 +6,9 @@ namespace MyApp\Routing;
 
 use MyApp\Controller\DefaultController;
 use MyApp\Controller\UserController;
+use MyApp\Controller\ProductController;
 use MyApp\Service\DependencyContainer;
+
 
 class Router
 {
@@ -46,6 +48,7 @@ class Router
             'addUser' => [DefaultController::class, 'addUser', ['admin']],
             'deleteUser' => [DefaultController::class, 'deleteUser', ['admin']],
             'list-users' => [UserController::class, 'listUsers', ['admin']],
+            'cart' => [ProductController::class, 'cart', []],
         ];
         $this->defaultPage = 'home';
         $this->errorPage = '404';
